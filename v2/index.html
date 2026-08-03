@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>受験勉強と並走しながら小学生・中学生で英検2級、高校生で準1級を目指せる英語塾｜ESL club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   ESL club LP v2 — デザイントークン
+   色は eslclub.jp の実測値のみ／黒の面は使わない
+   ===================================================== */
+:root{
+  /* color */
+  --green:#00B220;      /* ブランド緑：CTA */
+  --green-d:#05A81F;    /* ホバー */
+  --green-t:#EBF8ED;    /* 緑の淡色面 */
+  --orange:#FF9301;     /* アクセント（無料バッジ等） */
+  --yellow:#FFE95C;     /* 見出しマーカー */
+  --ink:#000000;        /* 本文 */
+  --ink2:#333333;       /* 補助 */
+  --ink3:#707070;       /* 注釈 */
+  --bg:#FFFFFF;
+  --bg2:#F8F8F8;
+  --line:#E3E3E3;
+  /* type scale */
+  --fs-note:12px; --fs-sm:13px; --fs-base:15px; --fs-md:17px;
+  --fs-lg:20px;  --fs-xl:26px; --fs-2xl:34px; --fs-3xl:44px;
+  /* space scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
+  --r:6px;                        /* 本家準拠の角丸 */
+  --e:cubic-bezier(.23,1,.32,1);
+  --font:"Noto Sans JP","Helvetica Neue",Helvetica,"Hiragino Sans","Hiragino Kaku Gothic ProN",Arial,"Yu Gothic",Meiryo,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:where(a,button):focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:var(--r)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--s5)}
+.nb{white-space:nowrap}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);
+  background:var(--green);color:#fff;font-weight:700;font-size:var(--fs-md);
+  padding:18px 34px;border-radius:var(--r);letter-spacing:.02em;
+  transition:background .16s var(--e),transform .16s var(--e)}
+.btn .free{background:var(--orange);color:#fff;font-size:var(--fs-sm);font-weight:900;
+  padding:3px 10px;border-radius:3px;line-height:1.6}
+.btn .arw{width:20px;height:9px;flex:none}
+.btn .arw svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8}
+.btn:active{transform:scale(.98)}
+@media(hover:hover) and (pointer:fine){.btn:hover{background:var(--green-d)}}
+.btn--sm{padding:12px 22px;font-size:var(--fs-sm)}
+
+/* ---------- ヘッダー ---------- */
+.hd{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd__in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.hd__logo img{height:32px;width:auto}
+
+/* ---------- FV ---------- */
+.fv{position:relative;overflow:hidden}
+.fv::before{content:"";position:absolute;inset:0 0 0 auto;width:52%;background:var(--bg2);z-index:0}
+.fv__in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);
+  gap:var(--s8);align-items:center;padding:var(--s8) var(--s5) calc(var(--s8) + 8px);min-height:calc(100vh - 76px)}
+
+/* 左：コピー */
+.fv__lead{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s5);
+  font-size:var(--fs-base);font-weight:700;color:var(--green-d);letter-spacing:.02em}
+.fv__lead::before{content:"";width:28px;height:2px;background:var(--orange);flex:none}
+.fv h1{margin:0 0 var(--s6);font-weight:900;font-size:clamp(28px,3.1vw,var(--fs-3xl));line-height:1.5;letter-spacing:.005em}
+.fv h1 .mk{background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 .05em}
+.fv h1 .sub{color:var(--ink2);font-size:.72em;font-weight:700;display:block;margin-bottom:var(--s2)}
+
+/* 根拠の数字 */
+.proof{display:flex;gap:var(--s6);margin:0 0 var(--s6);padding:var(--s5) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof__i{display:flex;flex-direction:column;gap:2px}
+.proof__n{font-weight:900;font-size:clamp(26px,2.6vw,36px);line-height:1;color:var(--green-d);font-variant-numeric:tabular-nums}
+.proof__n small{font-size:.48em;margin-left:2px;font-weight:900}
+.proof__l{font-size:var(--fs-sm);font-weight:700;color:var(--ink2)}
+.fv__note{margin:var(--s3) 0 0;font-size:var(--fs-note);color:var(--ink3);line-height:1.8}
+
+/* 右：写真2枚（四角で使わない＝上辺アーチ・高さをずらす） */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:end;height:min(72vh,660px)}
+.shot{position:relative;overflow:hidden;height:100%;
+  border-radius:180px 180px var(--r) var(--r)}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot--a{height:88%}
+.shot--b{height:100%}
+.shot__tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);
+  background:rgba(255,255,255,.95);color:var(--ink);font-size:var(--fs-note);font-weight:900;
+  padding:5px 14px;border-radius:999px;white-space:nowrap}
+
+@media(max-width:1000px){
+  .fv::before{display:none}
+  .fv__in{grid-template-columns:1fr;gap:var(--s6);min-height:0;padding:var(--s6) var(--s5) var(--s7)}
+  .shots{height:min(46vh,380px)}
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="wrap hd__in">
+    <p class="hd__logo" style="margin:0"><a href="https://eslclub.jp"><img src="../assets/img/index_lp/logo.svg" alt="ESL club"></a></p>
+    <a class="btn btn--sm" href="https://eslclub.jp/trial/"><span class="free">無料</span>体験レッスンはこちら</a>
+  </div>
+</header>
+
+<section class="fv">
+  <div class="wrap fv__in">
+
+    <div class="fv__copy">
+      <p class="fv__lead">2015年の開塾以降“英検に特化”してきたからできる</p>
+
+      <h1>
+        <span class="sub">受験勉強と並走しながら</span>
+        <span class="nb">小学生・中学生で<span class="mk">英検2級</span>、</span><br>
+        <span class="nb">高校生で<span class="mk">準1級</span>を</span><br>目指せる英語塾
+      </h1>
+
+      <div class="proof">
+        <div class="proof__i">
+          <span class="proof__n">1,000<small>名以上</small></span>
+          <span class="proof__l">累計の合格実績</span>
+        </div>
+        <div class="proof__i">
+          <span class="proof__n">75<small>%</small></span>
+          <span class="proof__l">小中学生の英検2級 合格率</span>
+        </div>
+      </div>
+
+      <a class="btn" href="https://eslclub.jp/trial/">
+        <span class="free">無料</span>体験レッスンはこちら
+        <span class="arw"><svg viewBox="0 0 20 9"><path d="M0 4.5h17M13 1l4 3.5-4 3.5"/></svg></span>
+      </a>
+      <p class="fv__note">いつまでに2級合格できるかレッスン後にご案内します<br>
+        ※合格率は2023年度第2回の実績（ESL clubオンライン校）／受験者のうち1次・2次受験双方に合格した生徒の割合</p>
+    </div>
+
+    <div class="shots">
+      <figure class="shot shot--a" style="margin:0">
+        <img src="../lp/newonline/img/kv_a.jpg" alt="自宅で英作文に取り組む小学生">
+      </figure>
+      <figure class="shot shot--b" style="margin:0">
+        <img src="../lp/newonline/img/kv_b.jpg" alt="オンラインで英検2級の学習をする中高生">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
