@@ -812,8 +812,10 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     window.addEventListener('load',onScroll);
     check();               // 初回：既に画面内のものは即表示
     setTimeout(check,400); // 画像読込で高さが変わった場合の保険
-    // 保険：3秒後に取りこぼしがあれば全部表示（コンテンツ消失の防止）
-    setTimeout(function(){ try{ els.forEach(show); els.length=0; }catch(e){} }, 3000);
+    // 保険：スクロールが一度も来ないまま長時間経ったら全部表示（消失防止）
+    var scrolled=false;
+    window.addEventListener('scroll',function(){scrolled=true;},{passive:true,once:true});
+    setTimeout(function(){ if(!scrolled){ try{ els.forEach(show); els.length=0; }catch(e){} } }, 20000);
   }catch(e){
     try{ document.documentElement.className=document.documentElement.className.replace(/\bfx-on\b/,''); }catch(_){}
   }
