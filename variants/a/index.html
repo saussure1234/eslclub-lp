@@ -52,8 +52,7 @@ h1 .g{color:var(--green)}
 .chip{background:var(--white);border:1px solid var(--line);padding:9px 16px;font-size:13.5px;font-weight:700;color:var(--ink)}
 .chip b{font-weight:700;font-size:17px;color:var(--gold);margin-right:2px}
 .cta-note{margin:12px 0 0;font-size:13px;color:var(--ink2)}
-.hero-fig{position:relative}
-.hero-fig{border-radius:50% 50% 14px 14px / 26% 26% 14px 14px;overflow:hidden;background:var(--paper2)}
+.hero-fig{display:block;position:relative;overflow:hidden;background:var(--paper2);border-radius:50% 50% 16px 16px / 30% 30% 16px 16px}
 .hero-fig img{width:100%;display:block}
 .hero-fig figcaption{position:absolute;left:0;bottom:-1px;background:var(--green);color:#fff;font-weight:700;font-size:12.5px;padding:7px 14px;letter-spacing:.04em}
 
@@ -97,14 +96,6 @@ h1 .g{color:var(--green)}
 @media(hover:hover) and (pointer:fine){.cta-band .btn:hover{background:#F2FBF3}}
 .cta-band .cta-note{color:rgba(255,255,255,.8)}
 
-
-/* ---------- ギザギザ円バッジ ---------- */
-.burst{position:absolute;z-index:2;width:158px;height:158px;background:#FFE95C;clip-path:polygon(50.00% 0.00%, 53.10% 6.61%, 57.12% 0.51%, 59.25% 7.49%, 64.09% 2.03%, 65.20% 9.24%, 70.77% 4.52%, 70.85% 11.82%, 77.03% 7.94%, 76.07% 15.18%, 82.74% 12.21%, 80.76% 19.24%, 87.79% 17.26%, 84.82% 23.93%, 92.06% 22.97%, 88.18% 29.15%, 95.48% 29.23%, 90.76% 34.80%, 97.97% 35.91%, 92.51% 40.75%, 99.49% 42.88%, 93.39% 46.90%, 100.00% 50.00%, 93.39% 53.10%, 99.49% 57.12%, 92.51% 59.25%, 97.97% 64.09%, 90.76% 65.20%, 95.48% 70.77%, 88.18% 70.85%, 92.06% 77.03%, 84.82% 76.07%, 87.79% 82.74%, 80.76% 80.76%, 82.74% 87.79%, 76.07% 84.82%, 77.03% 92.06%, 70.85% 88.18%, 70.77% 95.48%, 65.20% 90.76%, 64.09% 97.97%, 59.25% 92.51%, 57.12% 99.49%, 53.10% 93.39%, 50.00% 100.00%, 46.90% 93.39%, 42.88% 99.49%, 40.75% 92.51%, 35.91% 97.97%, 34.80% 90.76%, 29.23% 95.48%, 29.15% 88.18%, 22.97% 92.06%, 23.93% 84.82%, 17.26% 87.79%, 19.24% 80.76%, 12.21% 82.74%, 15.18% 76.07%, 7.94% 77.03%, 11.82% 70.85%, 4.52% 70.77%, 9.24% 65.20%, 2.03% 64.09%, 7.49% 59.25%, 0.51% 57.12%, 6.61% 53.10%, 0.00% 50.00%, 6.61% 46.90%, 0.51% 42.88%, 7.49% 40.75%, 2.03% 35.91%, 9.24% 34.80%, 4.52% 29.23%, 11.82% 29.15%, 7.94% 22.97%, 15.18% 23.93%, 12.21% 17.26%, 19.24% 19.24%, 17.26% 12.21%, 23.93% 15.18%, 22.97% 7.94%, 29.15% 11.82%, 29.23% 4.52%, 34.80% 9.24%, 35.91% 2.03%, 40.75% 7.49%, 42.88% 0.51%, 46.90% 6.61%);
-  display:grid;place-content:center;text-align:center;line-height:1.45;transform:rotate(-6deg)}
-.burst .bn{font-weight:900;font-size:26px;color:var(--ink);letter-spacing:-.01em}
-.burst .bn small{font-size:.5em;font-weight:900;margin-left:1px}
-.burst .bt{font-weight:700;font-size:12.5px;color:var(--ink2)}
-@media(max-width:900px){.burst{width:118px;height:118px}.burst .bn{font-size:20px}.burst .bt{font-size:11px}}
 
 /* ---------- 汎用 ---------- */
 .sub-h{font-weight:900;font-size:clamp(17px,2.2vw,21px);margin:clamp(30px,3.4vw,44px) 0 18px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
@@ -174,7 +165,7 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 .tab:active{transform:scale(.99)}
 .panel{border:1px solid var(--line);background:var(--white);padding:clamp(22px,3vw,38px)}
 .panel[hidden]{display:none}
-.panel__img{width:100%;border-radius:38% 38% 10px 10px / 16% 16% 10px 10px;margin-bottom:clamp(20px,2.4vw,28px)}
+.panel__img{display:block;width:100%;border-radius:40% 40% 12px 12px / 18% 18% 12px 12px;margin-bottom:clamp(20px,2.4vw,28px)}
 .info{margin:0}
 .info div{display:grid;grid-template-columns:1fr;gap:3px;padding:14px 0;border-bottom:1px solid var(--line)}
 .info dt{font-weight:700;font-size:12.5px;color:var(--green2);letter-spacing:.04em}
@@ -250,14 +241,11 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
       <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
       <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
     </div>
-    <figure class="hero-fig-wrap" style="margin:0;position:relative">
-      <span class="burst" style="right:-10px;top:-18px"><span><span class="bn">1,000<small>名</small></span><span class="bt">以上の合格実績</span></span></span>
-      <span class="hero-fig">
+    <figure class="hero-fig" style="margin:0">
       <picture>
         <source srcset="../../lp/newonline/img/kv_new_pc.jpg" media="(min-width: 900.1px)">
         <img src="../../lp/newonline/img/kv_new_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす">
       </picture>
-      </span>
     </figure>
   </div>
 </section>
