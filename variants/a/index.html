@@ -39,27 +39,37 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .btn .ar{width:18px;height:8px;flex:none}
 .btn .ar svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.6}
 
-/* hero */
-.hero{padding:76px 0 86px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(#FFFFFF 0 62%, #F8F8F8 62% 100%)}
-.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.18fr);gap:44px;align-items:center}
-.eyebrow{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14.5px;color:var(--green2);letter-spacing:.04em;margin:0 0 20px}
-.eyebrow::before{content:"";width:32px;height:2px;background:var(--gold);flex:none}
-h1{font-weight:900;font-size:clamp(30px,3.5vw,44px);line-height:1.5;letter-spacing:.005em;margin:0 0 26px}
-h1 .u{background:linear-gradient(transparent 60%, #FFE95C 60%);padding:0 .04em}
-h1 .g{color:var(--green)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
-.chip{background:var(--white);border:1px solid var(--line);padding:9px 16px;font-size:13.5px;font-weight:700;color:var(--ink)}
-.chip b{font-weight:700;font-size:17px;color:var(--gold);margin-right:2px}
-.cta-note{margin:12px 0 0;font-size:13px;color:var(--ink2)}
-.hero-fig{display:block;position:relative;overflow:hidden;background:var(--paper2);border-radius:50% 50% 16px 16px / 30% 30% 16px 16px}
-.hero-fig img{width:100%;display:block}
-.hero-fig figcaption{position:absolute;left:0;bottom:-1px;background:var(--green);color:#fff;font-weight:700;font-size:12.5px;padding:7px 14px;letter-spacing:.04em}
+/* hero = 全画面写真 */
+.hero{position:relative;min-height:calc(100svh - 0px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-2}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero__scrim{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 42%, rgba(0,0,0,.62) 82%, rgba(0,0,0,.78) 100%)}
+.hero-in{position:relative;z-index:1;width:100%;padding:0 24px calc(64px + 5vw);max-width:1240px;margin:0 auto;color:#fff}
+.eyebrow{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;color:#fff;letter-spacing:.04em;margin:0 0 16px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.eyebrow::before{content:"";width:30px;height:2px;background:#FFE95C;flex:none}
+h1{font-weight:900;font-size:clamp(30px,6.4vw,60px);line-height:1.42;letter-spacing:.005em;margin:0 0 26px;color:#fff;
+  text-shadow:0 2px 22px rgba(0,0,0,.42);max-width:16em}
+h1 .u{background:linear-gradient(transparent 62%, rgba(255,233,92,.92) 62%);padding:0 .05em;color:#fff}
+h1 .g{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 26px}
+.chip{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.42);
+  padding:8px 15px;font-size:12.5px;font-weight:700;color:#fff;border-radius:999px}
+.chip b{font-weight:900;font-size:16px;color:#FFE95C;margin-right:2px}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.cta-note{margin:0;font-size:12.5px;color:rgba(255,255,255,.9);flex-basis:100%}
+.hero .btn{padding:17px 32px;font-size:16px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+.scroll-hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;
+  font-size:10.5px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.85)}
+
+/* 山型（曲線）のセクション境目 */
+.curve{display:block;width:100%;height:clamp(38px,6vw,84px);margin-bottom:-1px;position:relative;z-index:2}
+.curve svg{display:block;width:100%;height:100%}
+.curve--up{margin-top:-1px;margin-bottom:0}
 
 /* section base */
 .sec{padding:96px 0}
-.sec.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec.alt{background:var(--paper2)}
 .sec-h{margin:0 0 44px}
 .sec-h .en{display:block;font-weight:600;font-size:12.5px;letter-spacing:.18em;color:var(--gold);margin-bottom:8px}
 .sec-h h2{font-weight:900;font-size:clamp(23px,2.7vw,31px);margin:0;line-height:1.45}
@@ -231,25 +241,29 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 </header>
 
 <section class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <p class="eyebrow">2015年の開塾以降“英検に特化”してきたからできる</p>
-      <h1>受験勉強と並走しながら<br><span class="nb"><span class="g">小学生・中学生で</span><span class="u">英検2級</span></span>、<br class="sp"><span class="nb"><span class="g">高校生で</span><span class="u">準1級</span></span>を<br>目指せる英語塾</h1>
-      <div class="chips">
-        <span class="chip">累計<b>1,000</b>名以上を合格に導いた英検ベースのカリキュラム</span>
-        <span class="chip">バイリンガル講師のマンツーマンレッスン</span>
-      </div>
+  <div class="hero__bg">
+    <picture>
+      <source srcset="../../lp/newonline/img/kv_big_pc.jpg" media="(min-width: 900.1px)">
+      <img src="../../lp/newonline/img/kv_fs_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero-in">
+    <p class="eyebrow">2015年の開塾以降“英検に特化”してきたからできる</p>
+    <h1>受験勉強と並走しながら<br><span class="nb">小学生・中学生で<span class="u">英検2級</span></span>、<br class="sp"><span class="nb">高校生で<span class="u">準1級</span></span>を<br>目指せる英語塾</h1>
+    <div class="chips">
+      <span class="chip">累計<b>1,000</b>名以上を合格に導いた英検ベースのカリキュラム</span>
+      <span class="chip">バイリンガル講師のマンツーマンレッスン</span>
+    </div>
+    <div class="hero-cta">
       <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
       <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
     </div>
-    <figure class="hero-fig" style="margin:0">
-      <picture>
-        <source srcset="../../lp/newonline/img/kv_big_pc.jpg" media="(min-width: 900.1px)">
-        <img src="../../lp/newonline/img/kv_big_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす">
-      </picture>
-    </figure>
   </div>
+  <span class="scroll-hint">SCROLL</span>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec alt">
   <div class="wrap">
@@ -262,6 +276,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     </div>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec">
   <div class="wrap">
@@ -278,12 +294,16 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
+
 <section class="sec alt">
   <div class="wrap">
     <div class="sec-h"><span class="en">POINT 2</span><h2>目標級・時期と現在のレベルから<br>作成する個別の学習計画</h2></div>
     <p class="lead-p">目標とする級と受験の時期、そして現在の英語レベル、学習に充てられる時間の4点から逆算して個別の学習計画を作成し、確保できる学習時間に合わせてレッスンの進め方と宿題量を設計します。学習時間そのものを増やすのではなく、限られた時間の使い方を組み立て直すため、中学受験から大学受験までの受験勉強や、部活動・他の習い事を続けながら、英検合格を目指すことができます。</p>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec">
   <div class="wrap">
@@ -303,6 +323,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
+
 <section class="sec alt">
   <div class="wrap">
     <div class="sec-h"><span class="en">POINT 4</span><h2>計画の実行をフォローする<br>スクールマネージャー</h2></div>
@@ -316,6 +338,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec">
   <div class="wrap">
@@ -336,6 +360,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     </div>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
 
 <section class="sec alt">
   <div class="wrap">
@@ -366,6 +392,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     </div>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec">
   <div class="wrap">
@@ -421,6 +449,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
+
 <section class="sec alt">
   <div class="wrap">
     <div class="sec-h"><span class="en">VOICE</span><h2>保護者さまの声</h2></div>
@@ -460,6 +490,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
+
 <section class="sec">
   <div class="wrap">
     <div class="sec-h"><span class="en">RESULTS</span><h2>中学受験合格実績</h2></div>
@@ -474,6 +506,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     <p class="notes">※一部</p>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
 
 <section class="sec alt">
   <div class="wrap">
@@ -494,6 +528,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
     </div>
   </div>
 </section>
+
+<div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec">
   <div class="wrap">
