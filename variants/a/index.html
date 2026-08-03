@@ -39,35 +39,40 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .btn .ar{width:18px;height:8px;flex:none}
 .btn .ar svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.6}
 
-/* hero = 全画面写真 ＋ 写真の上に白ブロックでテキスト */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.hero__bg{position:absolute;inset:0;z-index:0}
-.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0,rgba(0,0,0,0) 30%)}
-/* 写真に差し込む白ブロック（上辺は有機的な波） */
-.hero__panel{position:relative;z-index:2;background:#fff;padding:clamp(26px,5vw,44px) clamp(22px,5vw,46px) clamp(30px,5vw,46px);
-  border-radius:clamp(26px,5vw,44px) clamp(26px,5vw,44px) 0 0;box-shadow:0 -18px 50px rgba(0,0,0,.16)}
-.hero__wave{position:relative;z-index:2;display:block;width:100%;height:clamp(26px,5vw,46px);margin-bottom:-1px}
-.hero__wave svg{display:block;width:100%;height:100%}
-.hero__logo{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;justify-content:space-between;align-items:center;
-  padding:16px 18px;gap:12px}
-.hero__logo .lg{background:rgba(255,255,255,.95);border-radius:999px;padding:9px 16px;display:inline-flex}
-.hero__logo .lg img{height:24px;width:auto}
-.eyebrow{display:flex;align-items:center;gap:11px;font-weight:700;font-size:13px;color:var(--green2);letter-spacing:.03em;margin:0 0 14px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);flex:none}
-h1{font-weight:900;font-size:clamp(25px,5.6vw,44px);line-height:1.5;margin:0 0 20px;color:var(--ink)}
+/* hero = 写真2枚のあいだにテキストブロックを差し込む */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto 1fr;overflow:hidden;background:#000}
+.hero__ph{position:relative;overflow:hidden;min-height:0}
+.hero__ph img{width:100%;height:100%;object-fit:cover;display:block}
+.hero__ph--a img{object-position:50% 32%}
+.hero__ph--b img{object-position:58% 42%}
+.hero__ph .cap{position:absolute;left:14px;z-index:2;background:rgba(255,255,255,.94);color:var(--ink);
+  font-size:11.5px;font-weight:900;letter-spacing:.06em;padding:5px 12px;border-radius:999px}
+.hero__ph--a .cap{top:66px}
+.hero__ph--b .cap{bottom:16px}
+/* 差し込む白ブロック：上下とも波形で写真に食い込む */
+.hero__panel{position:relative;z-index:3;background:#fff;
+  padding:clamp(20px,4.4vw,34px) clamp(20px,5vw,40px) clamp(22px,4.4vw,34px);
+  margin:clamp(-26px,-4vw,-18px) 0;border-radius:clamp(22px,4vw,34px);
+  box-shadow:0 12px 44px rgba(0,0,0,.24)}
+.hero__logo{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;gap:12px}
+.hero__logo .lg{background:rgba(255,255,255,.95);border-radius:999px;padding:8px 15px;display:inline-flex}
+.hero__logo .lg img{height:23px;width:auto}
+.eyebrow{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12.5px;color:var(--green2);letter-spacing:.02em;margin:0 0 11px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);flex:none}
+h1{font-weight:900;font-size:clamp(21px,5.2vw,40px);line-height:1.52;margin:0 0 16px;color:var(--ink)}
 h1 .u{background:linear-gradient(transparent 62%, #FFE95C 62%);padding:0 .05em}
 h1 .g{color:var(--green2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
-.chip{background:var(--green-l);border:0;padding:8px 14px;font-size:12px;font-weight:700;color:var(--ink);border-radius:999px}
-.chip b{font-weight:900;font-size:15px;color:var(--green2);margin-right:1px}
-.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.hero .btn{padding:16px 30px;font-size:16px;width:100%;justify-content:center}
-.cta-note{margin:0;font-size:12.5px;color:var(--ink2);flex-basis:100%;text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.chip{background:var(--green-l);border:0;padding:7px 13px;font-size:11.5px;font-weight:700;color:var(--ink);border-radius:999px}
+.chip b{font-weight:900;font-size:14px;color:var(--green2);margin-right:1px}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.hero .btn{padding:15px 26px;font-size:15.5px;width:100%;justify-content:center}
+.cta-note{margin:0;font-size:12px;color:var(--ink2);flex-basis:100%;text-align:center}
 @media(min-width:900px){
-  .hero{justify-content:center;align-items:flex-start;padding:0 6vw}
-  .hero__panel{max-width:590px;border-radius:32px;margin:0;box-shadow:0 24px 70px rgba(0,0,0,.22)}
-  .hero__wave{display:none}
+  .hero{grid-template-rows:none;grid-template-columns:1fr minmax(430px,520px) 1fr;align-items:stretch}
+  .hero__panel{margin:0 clamp(-40px,-3vw,-24px);align-self:center;border-radius:30px;padding:44px 42px}
+  .hero__ph--a .cap{top:auto;bottom:22px;left:22px}
+  .hero__ph--b .cap{bottom:22px;left:22px}
   .hero .btn{width:auto}
   .cta-note{flex-basis:auto;text-align:left}
   .hero__logo{padding:22px 30px}
@@ -293,17 +298,16 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 </header>
 
 <section class="hero">
-  <div class="hero__bg">
-    <picture>
-      <source srcset="../../lp/newonline/img/kv_big_pc.jpg" media="(min-width: 900.1px)">
-      <img src="../../lp/newonline/img/kv_fs_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす" fetchpriority="high">
-    </picture>
-  </div>
   <div class="hero__logo">
     <span class="lg"><img src="../../assets/img/index_lp/logo.svg" alt="ESL club"></span>
-    <a class="btn" href="https://eslclub.jp/trial/" style="padding:10px 18px;font-size:13px;width:auto">無料体験</a>
+    <a class="btn" href="https://eslclub.jp/trial/" style="padding:10px 17px;font-size:12.5px;width:auto">無料体験</a>
   </div>
-  <span class="hero__wave" aria-hidden="true"><svg viewBox="0 0 390 46" preserveAspectRatio="none"><path d="M0,46 C46,10 92,38 140,20 C188,2 232,32 282,16 C322,3 356,26 390,12 L390,46 Z" fill="#ffffff"/></svg></span>
+
+  <div class="hero__ph hero__ph--a">
+    <img src="../../lp/newonline/img/kv_a.jpg" alt="自宅で英作文に取り組む小学生" fetchpriority="high">
+    <span class="cap">小学生</span>
+  </div>
+
   <div class="hero__panel">
     <p class="eyebrow">2015年の開塾以降“英検に特化”してきたからできる</p>
     <h1>受験勉強と並走しながら<br><span class="nb"><span class="g">小学生・中学生で</span><span class="u">英検2級</span></span>、<br><span class="nb"><span class="g">高校生で</span><span class="u">準1級</span></span>を目指せる英語塾</h1>
@@ -315,6 +319,11 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
       <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
       <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
     </div>
+  </div>
+
+  <div class="hero__ph hero__ph--b">
+    <img src="../../lp/newonline/img/kv_b.jpg" alt="オンラインで英検2級の学習をする中高生">
+    <span class="cap">中学生・高校生</span>
   </div>
 </section>
 
