@@ -96,6 +96,113 @@ h1 .g{color:var(--green)}
 @media(hover:hover) and (pointer:fine){.cta-band .btn:hover{background:#F2FBF3}}
 .cta-band .cta-note{color:rgba(255,255,255,.8)}
 
+
+/* ---------- 汎用 ---------- */
+.sub-h{font-weight:900;font-size:clamp(17px,2.2vw,21px);margin:clamp(30px,3.4vw,44px) 0 18px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.notes{margin-top:16px;font-size:12px;color:var(--ink2);line-height:1.85}
+.gridline{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.gridline > *{background:var(--white)}
+
+/* ---------- バナー ---------- */
+.bnrs{display:grid;gap:14px}
+.bnr{display:block;border:1px solid var(--line);transition:transform .18s var(--e)}
+.bnr img{width:100%;height:auto}
+@media(hover:hover) and (pointer:fine){.bnr:hover{transform:translateY(-2px)}}
+
+/* ---------- 人物（マネジャー／講師） ---------- */
+.people{grid-template-columns:1fr}
+.person{padding:clamp(22px,2.8vw,34px);display:grid;gap:clamp(16px,2.2vw,26px);grid-template-columns:1fr}
+.person__head{display:flex;align-items:center;gap:16px}
+.person__ph{width:92px;height:92px;flex:none;object-fit:cover;border-radius:50%;border:3px solid var(--green-l)}
+.person__role{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--green2);line-height:1.6}
+.person__name{font-weight:900;font-size:clamp(17px,2.2vw,21px);line-height:1.4;margin-top:5px}
+.person__meta{list-style:none;padding:0;margin:9px 0 0;font-size:12.5px;color:var(--ink2);line-height:1.8}
+.person__meta li{position:relative;padding-left:13px}
+.person__meta li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:2px;background:var(--gold)}
+.person__c{font-size:14px;line-height:2;color:var(--ink2)}
+.person__c p+p{margin-top:1em}
+@media(min-width:840px){
+  .person{grid-template-columns:250px 1fr;align-items:start}
+  .person__head{flex-direction:column;align-items:flex-start;gap:14px}
+  .person__ph{width:120px;height:120px}
+  .people--3{grid-template-columns:repeat(3,1fr)}
+  .people--3 .person{grid-template-columns:1fr}
+  .people--3 .person__ph{width:104px;height:104px}
+}
+
+/* ---------- 保護者の声 ---------- */
+.voices{display:grid;gap:18px}
+.voice{background:var(--white);border:1px solid var(--line);padding:clamp(22px,2.8vw,34px)}
+.voice--reply{background:var(--green-l);border-color:#CFE9D6}
+.voice__t{font-weight:900;font-size:clamp(15px,2vw,17px);line-height:1.6;padding-bottom:14px;border-bottom:2px solid var(--green);display:inline-block}
+.voice__b{margin-top:20px;display:grid;gap:18px;grid-template-columns:1fr}
+.voice__ph{width:84px;height:84px;object-fit:cover;border-radius:50%;border:3px solid var(--white)}
+.voice__tx{font-size:14px;line-height:2;color:var(--ink2)}
+.voice__tx p+p{margin-top:1em}
+@media(min-width:720px){.voice__b{grid-template-columns:112px 1fr;gap:26px}.voice__ph{width:112px;height:112px}}
+
+/* ---------- 合格実績 ---------- */
+.passed{list-style:none;padding:0;margin:0;grid-template-columns:1fr}
+.passed li{padding:16px clamp(16px,2vw,24px);font-weight:700;font-size:15px;line-height:1.6;display:flex;align-items:center;gap:11px}
+.passed li::before{content:"";width:7px;height:7px;background:var(--green);border-radius:50%;flex:none}
+@media(min-width:640px){.passed{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.passed{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- 比較表 ---------- */
+.tblwrap{overflow-x:auto;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:700px;background:var(--white)}
+th,td{padding:15px 16px;text-align:left;font-size:14px;line-height:1.75;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--paper2);font-weight:700;font-size:13px;color:var(--ink2)}
+thead th.is-esl{background:var(--green);color:#fff;font-size:14px}
+tbody th{font-weight:700;background:var(--paper2);white-space:nowrap;width:1%;font-size:13.5px}
+td.is-esl{font-weight:700;background:var(--green-l);color:var(--ink)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+
+/* ---------- 教室紹介（タブ） ---------- */
+.tabs{display:flex;gap:8px;margin-bottom:-1px}
+.tab{flex:1;background:var(--paper2);border:1px solid var(--line);border-bottom:0;padding:15px 12px;font-family:inherit;font-weight:700;font-size:15px;color:var(--ink2);cursor:pointer;border-radius:6px 6px 0 0;transition:background .16s var(--e),color .16s var(--e)}
+.tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.tab:active{transform:scale(.99)}
+.panel{border:1px solid var(--line);background:var(--white);padding:clamp(22px,3vw,38px)}
+.panel[hidden]{display:none}
+.panel__img{width:100%;border-radius:6px;margin-bottom:clamp(20px,2.4vw,28px)}
+.info{margin:0}
+.info div{display:grid;grid-template-columns:1fr;gap:3px;padding:14px 0;border-bottom:1px solid var(--line)}
+.info dt{font-weight:700;font-size:12.5px;color:var(--green2);letter-spacing:.04em}
+.info dd{margin:0;font-size:14.5px;line-height:1.8}
+@media(min-width:640px){.info div{grid-template-columns:170px 1fr;gap:16px;align-items:baseline}}
+.price{list-style:none;padding:0;margin:0}
+.price li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15px}
+.price .yen{font-size:clamp(19px,2.6vw,25px);font-variant-numeric:tabular-nums;color:var(--green2)}
+.price .yen small{font-size:.6em;margin-left:2px;color:var(--ink2)}
+.tt{list-style:none;padding:0;margin:0}
+.tt li{padding:13px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:4px}
+.tt .d{font-weight:700;font-size:12.5px;color:var(--green2)}
+.tt .h{font-size:14.5px;font-variant-numeric:tabular-nums;line-height:1.8;color:var(--ink2)}
+@media(min-width:640px){.tt li{grid-template-columns:210px 1fr;gap:16px;align-items:baseline}}
+
+/* ---------- 動画 ---------- */
+.movies{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:1fr}
+@media(min-width:840px){.movies{grid-template-columns:1fr 1fr}}
+.movie{background:var(--white);padding:clamp(18px,2.2vw,24px)}
+.movie__f{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden}
+.movie__f iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.movie__c{margin:12px 0 0;font-weight:700;font-size:14px;line-height:1.6}
+
+/* ---------- フッター ---------- */
+.foot{background:var(--paper2);border-top:1px solid var(--line);padding:clamp(40px,5vw,64px) 0}
+.foot__grid{display:grid;gap:clamp(26px,3vw,40px);grid-template-columns:1fr}
+@media(min-width:840px){.foot__grid{grid-template-columns:1fr 1fr 1fr}}
+.foot__h{font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--green2);padding-bottom:10px;border-bottom:1px solid var(--line);margin:0 0 14px}
+.foot__list{list-style:none;padding:0;margin:0}
+.foot__list li{padding:7px 0;font-size:13.5px;line-height:1.75}
+.foot__list a{border-bottom:1px solid transparent;transition:color .16s var(--e),border-color .16s var(--e)}
+@media(hover:hover) and (pointer:fine){.foot__list a:hover{color:var(--green2);border-color:var(--green)}}
+.foot__tel{font-weight:900;font-size:clamp(25px,3.4vw,32px);font-variant-numeric:tabular-nums;line-height:1.2;color:var(--ink)}
+.foot__hours{margin:6px 0 0;font-size:12.5px;color:var(--ink2);line-height:1.8}
+.foot__bottom{margin-top:clamp(30px,3.6vw,44px);padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink2);line-height:1.9}
+.foot__copy{margin-top:14px;font-size:11.5px;color:var(--ink2);letter-spacing:.04em}
+
 @media(max-width:900px){
   .hero{padding:36px 0 48px}
   .hero-in{grid-template-columns:1fr;gap:28px}
@@ -170,11 +277,377 @@ h1 .g{color:var(--green)}
   </div>
 </section>
 
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">POINT 2</span><h2>目標級・時期と現在のレベルから<br>作成する個別の学習計画</h2></div>
+    <p class="lead-p">目標とする級と受験の時期、そして現在の英語レベル、学習に充てられる時間の4点から逆算して個別の学習計画を作成し、確保できる学習時間に合わせてレッスンの進め方と宿題量を設計します。学習時間そのものを増やすのではなく、限られた時間の使い方を組み立て直すため、中学受験から大学受験までの受験勉強や、部活動・他の習い事を続けながら、英検合格を目指すことができます。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">POINT 3</span><h2>バイリンガル講師の<br>マンツーマンレッスン</h2></div>
+    <p class="lead-p">ESL clubでは、英検1級・TOEFL iBT95点・TOEIC900点レベル以上のバイリンガル講師のみを採用しています。年齢の近い講師との距離の近さがそのまま学習の動機づけになり、ライティングや長文読解では、その場で日本語に切り替えて解説します。必要な時に日本語で補えるため、疑問をその場で解消し、1回のレッスンで進める量を最大化できます。</p>
+    <h3 class="sub-h">レッスンの様子</h3>
+    <div class="movies">
+      <div class="movie">
+        <div class="movie__f"><iframe src="https://www.youtube.com/embed/d1pNo4ETKYc" title="小3男子 初学者 ハシモトカズマくん" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <p class="movie__c">小3男子 初学者 ハシモトカズマくん</p>
+      </div>
+      <div class="movie">
+        <div class="movie__f"><iframe src="https://www.youtube.com/embed/7TLrJshYhXY" title="小4女子 学習経験者 オオツカキサちゃん" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <p class="movie__c">小4女子 学習経験者 オオツカキサちゃん</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">POINT 4</span><h2>計画の実行をフォローする<br>スクールマネージャー</h2></div>
+    <p class="lead-p">スクールマネージャーが中心となり、学習計画どおりにレッスンが進むよう講師へ内容を伝達し、生徒様の進捗をレッスンごとに保護者様へ共有します。保護者様が学習内容を把握したり、レッスンに付き添っていただく必要はありません。お忙しいご家庭でも安心してお任せいただけます。</p>
+  </div>
+</section>
+
 <section class="cta-band">
   <div class="wrap">
     <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
     <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
   </div>
 </section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">CAMPAIGN</span></div>
+    <div class="bnrs">
+      <a class="bnr" href="https://eslclub.jp/seasonal-eiken/">
+        <picture>
+          <source media="(min-width: 720px)" srcset="../../assets/img/index_lp/pc_bnr_autumn2025.webp">
+          <img src="../../assets/img/index_lp/sp_bnr_autumn2025.webp" alt="英検®駆け込み歓迎！英検 短期集中講座 全級対応 1級〜5級 合格実績1,000名以上" loading="lazy">
+        </picture>
+      </a>
+      <a class="bnr" href="https://eslclub.jp/seasonal-school/">
+        <picture>
+          <source media="(min-width: 720px)" srcset="../../assets/img/index_lp/pc_bnr_summer2026.webp">
+          <img src="../../assets/img/index_lp/sp_bnr_summer2026.webp" alt="夏は英語を頑張りたい！秋の英検に向けて対策！夏季講習開講中" loading="lazy">
+        </picture>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">MANAGER</span><h2>スクールマネジャー紹介</h2></div>
+    <div class="people gridline">
+      <article class="person">
+        <div class="person__head">
+          <img class="person__ph" src="../../lp/newonline/img/manager01.webp" alt="梶 玲菜" loading="lazy" width="120" height="120">
+          <div>
+            <p class="person__role">オンライン校スクールマネジャー</p>
+            <p class="person__name">梶　玲菜</p>
+            <ul class="person__meta"><li>英語学習指導歴：7年</li></ul>
+          </div>
+        </div>
+        <div class="person__c"><p>みなさんにとっての、『英語』って何でしょうか？私にとっての『英語』とは、子どもたちの世界や視野を広げてくれるツールだと思います。将来の進路や、夢・目標を叶えられる場所や可能性がグーンと増やせるからです。英語は、子どもたちと世界の架け橋となり、とにかく新しい気づきを与え続けてくれます。例えば、文化の違い、見たこともない景色、日本では会えない人との出会い。この気づきは子どもたちにとって、「違うって面白い」「もっと知りたい」という探求の原動力になります。こうした探求の原動力を刺激し引き出しながら、子どもたちの可能性を英語で広げ、わくわくする気持ちを育んであげたい。そのためにもオンライン校では、楽しく、着実に実力に繋がるよう、一人ひとりの得意・不得意に柔軟に、カリキュラムを組みレッスンを行っています。まずは土台となる、一生モノの英語力を身に付けて、世界を広げる準備を一緒に始めませんか？みなさんと、英語とどんな将来を描いているのか、お話しできる日を楽しみにしています。</p></div>
+      </article>
+      <article class="person">
+        <div class="person__head">
+          <img class="person__ph" src="../../lp/newonline/img/manager02.webp" alt="楠山 理紀" loading="lazy" width="120" height="120">
+          <div>
+            <p class="person__role">オンライン校スクールマネジャー</p>
+            <p class="person__name">楠山　理紀</p>
+            <ul class="person__meta"><li>英語学習指導歴：5年</li></ul>
+          </div>
+        </div>
+        <div class="person__c"><p>英語は、何のために身につけるものか、人それぞれで、どれも正解だと思います。ただ、その中で、何か一つ楽しい理由を持って欲しいと思っております。洋画を、吹き替え・字幕なしで見たい。海外のYouTuberを、翻訳されるのを待たないで見れるようになりたい。将来外車を買うときに、マニュアルが全部英語でもへっちゃらになりたい。英語の習得は、時には難しく、辛いときもあるでしょう。でもその先に、趣味的な意味でも楽しい未来が待っていて欲しい。英語は、勉強として身につけるのだけではなく、自分の人生を楽しくするためにも身につけて欲しい。そして、ゴールだけでなく、その過程も楽しくしてあげたい、というのが私の願いです。是非、私やESL clubの講師と接してみて、英語ができたら、なにが楽しいんだろう？と問いかけてみてください。多種多様な答えが返ってきますので、これだ！と思えるもの見つけ出すのも、英語学習の一環としてみてはいかがでしょうか。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">TEACHERS</span><h2>講師紹介</h2></div>
+    <div class="people people--3 gridline">
+      <article class="person">
+        <div class="person__head">
+          <img class="person__ph" src="../../lp/newonline/img/teacher01.webp" alt="A.M.先生" loading="lazy" width="104" height="104">
+          <div>
+            <p class="person__name">A.M.先生</p>
+            <ul class="person__meta">
+              <li>海外経験：アメリカ9年／シンガポール1年</li>
+              <li>英語レベル：英検1級／IELTS 8.0</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person__c"><p>英語を学ぶことで様々な価値観に触れ、これまで以上に広い世界が見えてきます。思いがけない挑戦をするきっかけにもなるかもしれません！英語を使って未来の可能性を広げる楽しさを知ってもらえたら嬉しいです。</p></div>
+      </article>
+      <article class="person">
+        <div class="person__head">
+          <img class="person__ph" src="../../lp/newonline/img/teacher02.webp" alt="K.N.先生" loading="lazy" width="104" height="104">
+          <div>
+            <p class="person__name">K.N.先生</p>
+            <ul class="person__meta">
+              <li>海外経験：エチオピア2年／アメリカ2年／オランダ1年</li>
+              <li>英語レベル：英検1級／TOEFL ITP 623点</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person__c"><p>英語は、異なる国の多様な価値観を持った人々と対話をするためのツールであり、あなたの可能性を広げる武器となり、自信となります。言語学習を通してみなさんに世界を見ることができる人になってもらいたいです。</p></div>
+      </article>
+      <article class="person">
+        <div class="person__head">
+          <img class="person__ph" src="../../lp/newonline/img/teacher03.webp" alt="A.M.先生" loading="lazy" width="104" height="104">
+          <div>
+            <p class="person__name">A.M.先生</p>
+            <ul class="person__meta">
+              <li>海外経験：タイ5年／ロシア5年／パキスタン2年</li>
+              <li>英語レベル：英検1級</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person__c"><p>英語話者は世界中にいるため、英語が話せればどこへ行っても自分の思いを伝えられます。それはとても心強く、自信にもつながります。皆さんも英語を通じて様々な文化と出会い、自身の可能性を広げてみましょう！</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
+    <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">VOICE</span><h2>保護者さまの声</h2></div>
+    <div class="voices">
+      <article class="voice">
+        <p class="voice__t">3ヶ月で英検準2級を取得したAさん（小4）のお父さま</p>
+        <div class="voice__b">
+          <img class="voice__ph" src="../../lp/newonline/img/voice_parent01.webp" alt="保護者イメージ" loading="lazy" width="112" height="112">
+          <div class="voice__tx">
+            <p>ESL clubによる毎日の取り組みにより勉強習慣が身につきました。毎日やることによる継続力、単語テストを通じて得た自信、結果として残った英検準2級の合格が本人の成功体験へと繋がったかと思います。その小さな積み重ねののちに他教科への好影響へと波及していきました。</p>
+            <p>授業においては講師の皆様には常に優しく接していただき、毎回「楽しかった」と言っておりました。特にナヒョン先生のことは好きなようで、始まる前に「今日はナヒョン先生かな、たくさん話したいな」といつもウキウキしておりました。中学受験前、最後のレッスンを終えた後も「いつESL clubで再会できるかな、宿題を毎日するのは嫌だけど（笑）、ナヒョン先生とはずっと話したいのにな」とも言っておりました。「人生迷った時があったら、自分が幸せになれる方を選んでね」という言葉も昨日いただき「私はそうするんだ」と響いているようです。</p>
+          </div>
+        </div>
+      </article>
+      <article class="voice voice--reply">
+        <p class="voice__t">講師からのコメント</p>
+        <div class="voice__b">
+          <img class="voice__ph" src="../../lp/newonline/img/voice_teacher01.webp" alt="講師イメージ" loading="lazy" width="112" height="112">
+          <div class="voice__tx">
+            <p>素敵なお言葉をいただき、ありがとうございます。私は海外の医学部で学んだ経験から、「勉強を頑張ること」の喜びと同時に、その大変さも身をもって知っています。だからこそ、ESL clubでは、生徒さん一人ひとりにとって学ぶことが負担ではなく、人生を豊かにする喜びであってほしいと願いながら、日々の授業に向き合っています。</p>
+            <p>努力は大切ですが、頑張り続けることだけが正解ではありません。人生にはさまざまな選択や遠回りがあります。私自身、「なぜ生きるのか」を考え続けた結果、30代になってたどり着いた答えはとてもシンプルでした。それは、幸せになることです。</p>
+            <p>ESL clubの生徒さんたちには、「自分が幸せになること」をコンパスにして、これからの人生を歩んでほしいと考えています。その想いは、Aさんの最後の授業でもお伝えしました。そしてこれは、子どもたちだけでなく、私たち大人にも当てはまることだと思っています。子どもは、大人や先生の背中を見て学ぶからこそ、私は「幸せに向かって生きる姿」を示す存在でありたいと考えています。ESL clubの授業では、英語を学ぶことそのものを楽しみながら、その英語を通して自分の人生をより幸せなものにする力を育んでほしいと、心から願っています。</p>
+          </div>
+        </div>
+      </article>
+      <article class="voice">
+        <p class="voice__t">ESL club入会からたった8ヶ月で5級・4級・3級をスピード合格したTくん（小6）のお母さまより</p>
+        <div class="voice__b">
+          <img class="voice__ph" src="../../lp/newonline/img/voice_parent02.webp" alt="保護者イメージ" loading="lazy" width="112" height="112">
+          <div class="voice__tx">
+            <p>3級合格の目標達成ありがとうございます！本人も、『やっぱりESL clubスゴい！』と言っていて、ESLさんの力を肌で実感しているようです！ここまで、モチベーションも保ちつつ継続して学習に取り組め、尚且つ結果もしっかり導いて下さっており、本当にESLさんの力を私も実感させて頂いております。梶さんはじめ、ESLのスタッフの皆さん、講師の先生方のおかげです！感謝の気持ちでいっぱいです。</p>
+            <p>本人の発言など聞いていると、ESLさんをとても信頼していると感じており、本人の力を引き出して下さっている雰囲気、環境作りもスゴいなと感じています。本当にありがとうございます！</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">RESULTS</span><h2>中学受験合格実績</h2></div>
+    <ul class="passed gridline">
+      <li>東京学芸大学附属国際中等教育学校</li>
+      <li>広尾学園中学校</li>
+      <li>渋谷教育学園渋谷中学校</li>
+      <li>開智学園日本橋中学校</li>
+      <li>サレジアン国際中学校</li>
+      <li>文化学園杉並中学校</li>
+    </ul>
+    <p class="notes">※一部</p>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">COMPARE</span><h2>他の英語スクールとの違い</h2></div>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col" class="is-esl">ESL club</th><th scope="col">A社</th><th scope="col">B社</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">講師</th><td class="is-esl">英検1級以上のバイリンガル</td><td>バイリンガル</td><td>バイリンガル</td></tr>
+          <tr><th scope="row">レッスン形式</th><td class="is-esl">マンツーマン</td><td>マンツーマン</td><td>グループ</td></tr>
+          <tr><th scope="row">日々の保護者のフォロー</th><td class="is-esl">ほぼ不要（定期面談あり）</td><td>必要</td><td>必要</td></tr>
+          <tr><th scope="row">カリキュラム</th><td class="is-esl">目標とレベルに応じて一人一人個別に作成</td><td>画一的</td><td>画一的</td></tr>
+          <tr><th scope="row">英語力が伸びる宿題設計</th><td class="is-esl">あり</td><td>なし</td><td>なし</td></tr>
+          <tr><th scope="row">英検対策</th><td class="is-esl">5級から1級まで1次試験・面接の指導が可能</td><td>5級から準2級までは可能</td><td>4級から準2級までは可能</td></tr>
+          <tr><th scope="row">受験・編入対策</th><td class="is-esl">インターナショナルスクール入学・編入から、中学・高校・大学受験まで相談可能</td><td>不可</td><td>不可</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">SCHOOL</span><h2>教室紹介</h2></div>
+
+    <div class="tabs" role="tablist" aria-label="教室の切り替え">
+      <button class="tab" id="tab-shibuya" role="tab" aria-selected="true" aria-controls="panel-shibuya" type="button">渋谷校</button>
+      <button class="tab" id="tab-online" role="tab" aria-selected="false" aria-controls="panel-online" type="button">オンライン校</button>
+    </div>
+
+    <div class="panel" id="panel-shibuya" role="tabpanel" aria-labelledby="tab-shibuya">
+      <img class="panel__img" src="../../assets/img/index_lp/classroom.jpg" alt="ESL club 渋谷校の教室" loading="lazy">
+      <dl class="info">
+        <div><dt>電話</dt><dd><a href="tel:03-3797-3380">03-3797-3380</a></dd></div>
+        <div><dt>住所</dt><dd>〒150-0002　渋谷区渋谷1-8-6　宮益坂STビル10階</dd></div>
+        <div><dt>営業時間</dt><dd>火曜日から金曜日　14:00から20:00（土曜日14:00から19:00）</dd></div>
+        <div><dt>休校日</dt><dd>月曜日・日曜日</dd></div>
+        <div><dt>対象</dt><dd>小学1年生から高校3年生（既卒含む）／未就学児はご相談ください</dd></div>
+        <div><dt>レッスン形式</dt><dd>バイリンガル講師によるマンツーマンレッスン</dd></div>
+        <div><dt>レッスン時間</dt><dd>1回90分</dd></div>
+      </dl>
+
+      <h3 class="sub-h">料金</h3>
+      <ul class="price">
+        <li><span>週1回（月4回）</span><span class="yen">58,300<small>円（税込）</small></span></li>
+        <li><span>週2回（月8回）</span><span class="yen">85,800<small>円（税込）</small></span></li>
+        <li><span>週3回（月12回）</span><span class="yen">113,300<small>円（税込）</small></span></li>
+        <li><span>入会金</span><span class="yen">22,000<small>円（税込）</small></span></li>
+      </ul>
+
+      <h3 class="sub-h">タイムテーブル</h3>
+      <ul class="tt">
+        <li><span class="d">火曜日から金曜日</span><span class="h">14:45から16:15／16:30から18:00／18:15から19:45</span></li>
+        <li><span class="d">土曜日</span><span class="h">14:20から15:50／16:05から17:35／17:50から19:20</span></li>
+        <li><span class="d">月曜日・日曜日</span><span class="h">休校</span></li>
+      </ul>
+
+      <h3 class="sub-h">スクールマネジャーよりご挨拶</h3>
+      <div class="people gridline">
+        <article class="person">
+          <div class="person__head">
+            <div>
+              <p class="person__role">渋谷校スクールマネジャー</p>
+              <p class="person__name">杉舘　皆華</p>
+            </div>
+          </div>
+          <div class="person__c">
+            <p>私は、英検は子どもたちの成長を確認するための一つの「通過点」だと考えています。もちろん、英検合格は大きな目標です。しかし、私が本当に大切にしたいのは、その過程で身につく英語力や、目標に向かって努力する経験です。</p>
+            <p>これまで子どもたちと向き合う中で、結果だけでなく、その過程で得られる経験や自信こそが、その後の成長を支える大切な財産になることを実感してきました。</p>
+            <p>英検の学習を通して、英語力だけでなく、挑戦する力や継続する力も身につけていきます。そして、「できた」という成功体験の積み重ねが、自信となって次の一歩を後押ししてくれます。</p>
+            <p>私は、子どもたちには自分でも気付いていない大きな可能性があると信じています。その可能性を引き出し、一人ひとりが自信を持って成長していけるよう支えていくことが私の役割です。</p>
+            <p>英語を学ぶことが、生徒様の未来の選択肢を広げるきっかけとなるよう、ESL club渋谷校スタッフ一同、全力でサポートしてまいります。みなさまとお会いできることを心より楽しみにしております。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-online" role="tabpanel" aria-labelledby="tab-online" hidden>
+      <img class="panel__img" src="../../lp/newonline/img/school_online.webp" alt="ESL club オンライン校のレッスンイメージ" loading="lazy">
+      <p class="lead-p" style="margin-top:0">バイリンガル講師の個別レッスン指導をオンラインでも受講できます。シャドーイングやエッセイライティングの指導といったバイリンガルによる個別指導だからこそのレッスンはもちろん、生徒一人ひとりに合わせた学習プランのご提案まで、教室と全く同じサービスをご提供いたします。</p>
+      <dl class="info">
+        <div><dt>営業時間</dt><dd>火曜日から金曜日　14:00から20:00（土曜日14:00から19:00）</dd></div>
+        <div><dt>休校日</dt><dd>月曜日・日曜日</dd></div>
+        <div><dt>対象</dt><dd>小学1年生から高校3年生（既卒含む）／未就学児の生徒様はご相談ください</dd></div>
+        <div><dt>レッスン形式</dt><dd>バイリンガル講師による完全マンツーマンレッスン</dd></div>
+        <div><dt>レッスン時間</dt><dd>1回45分</dd></div>
+      </dl>
+
+      <h3 class="sub-h">料金</h3>
+      <ul class="price">
+        <li><span>週1回（月4回）</span><span class="yen">33,000<small>円（税込）</small></span></li>
+        <li><span>週2回（月8回）</span><span class="yen">52,800<small>円（税込）</small></span></li>
+        <li><span>週3回（月12回）</span><span class="yen">79,200<small>円（税込）</small></span></li>
+        <li><span>入会金</span><span class="yen">22,000<small>円（税込）</small></span></li>
+      </ul>
+      <p class="notes">※教材は別途ご購入いただきます</p>
+
+      <h3 class="sub-h">タイムテーブル</h3>
+      <ul class="tt">
+        <li><span class="d">火曜日から金曜日</span><span class="h">16:00から16:45／17:00から17:45／18:00から18:45／19:00から19:45／20:00から20:45（火・木のみ）</span></li>
+        <li><span class="d">土曜日</span><span class="h">14:00から14:45／15:00から15:45／16:00から16:45／17:00から17:45／18:00から18:45</span></li>
+        <li><span class="d">月曜日・日曜日</span><span class="h">休校</span></li>
+      </ul>
+
+      <h3 class="sub-h">週2回レッスンの同日連続受講例</h3>
+      <ul class="tt">
+        <li><span class="d">16:00から16:45</span><span class="h">レッスン①</span></li>
+        <li><span class="d">16:45から17:00</span><span class="h">休憩</span></li>
+        <li><span class="d">17:00から17:45</span><span class="h">レッスン②</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
+    <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <p class="foot__h">CONTACT</p>
+        <a class="foot__tel" href="tel:03-3797-3380">03-3797-3380</a>
+        <p class="foot__hours">受付時間：火曜日から金曜日　14:00から20:00<br>（土曜日14:00から19:00）</p>
+      </div>
+      <div>
+        <p class="foot__h">COURSE</p>
+        <ul class="foot__list">
+          <li><a href="#">英検2級に合格できる小学部</a></li>
+          <li><a href="#">受験・留学を有利にする中高部</a></li>
+        </ul>
+        <p class="foot__h" style="margin-top:26px">COMPANY</p>
+        <ul class="foot__list">
+          <li><a href="https://www.meikonet.co.jp/ja/corporate.html" target="_blank" rel="noopener">会社概要（明光ネットワークジャパン）</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot__h">BLOG</p>
+        <ul class="foot__list">
+          <li><a href="#">ブログトップ</a></li>
+          <li><a href="#">英検2級の合格点・レベル・問題傾向・必要な学習時間</a></li>
+          <li><a href="#">英検準2級のレベル・難易度・問題範囲・勉強法対策</a></li>
+          <li><a href="#">英検3級の合格点ライン・レベル・勉強方法・合格対策</a></li>
+          <li><a href="#">2025年英検試験日程・申込期間・解答・合格発表</a></li>
+          <li><a href="#">英検ライティング予想問題　3級・準2級・2級・準1級</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>英検®は、公益財団法人日本英語検定協会の登録商標です。このコンテンツは、公益財団法人日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。</p>
+      <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</p>
+      <p class="foot__copy">Copyright © 2024 ESL club</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (o) {
+        var sel = o === t;
+        o.setAttribute('aria-selected', sel ? 'true' : 'false');
+        document.getElementById(o.getAttribute('aria-controls')).hidden = !sel;
+      });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
