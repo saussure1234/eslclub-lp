@@ -62,6 +62,38 @@ h1 .g{color:#fff}
 .scroll-hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;
   font-size:10.5px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.85)}
 
+
+/* ===== ①写真を四角で使わない：有機的なブロブ ===== */
+.blob{border-radius:62% 38% 46% 54% / 58% 56% 44% 42%;overflow:hidden;display:block}
+.blob--b{border-radius:44% 56% 62% 38% / 46% 40% 60% 54%}
+.panel__img{display:block;width:100%;border-radius:46% 54% 40% 60% / 38% 34% 66% 62%;margin-bottom:clamp(20px,2.4vw,28px)}
+.person__ph{border-radius:58% 42% 50% 50% / 52% 56% 44% 48%}
+.voice__ph{border-radius:52% 48% 58% 42% / 46% 52% 48% 54%}
+
+/* ===== ②背景をブランド緑にして白ブロックを重ねる ===== */
+.sec--brand{background:var(--green);color:#fff;position:relative}
+.sec--brand .sec-h h2{color:#fff}
+.sec--brand .sec-h .en{color:#FFE95C}
+.sec--brand .notes{color:rgba(255,255,255,.86)}
+.blocks{display:grid;gap:clamp(20px,2.6vw,30px)}
+.block{background:#fff;color:var(--ink);border-radius:clamp(20px,2.6vw,30px);padding:clamp(24px,3vw,40px);
+  box-shadow:0 14px 40px rgba(0,0,0,.10)}
+@media(min-width:820px){
+  .block:nth-child(odd){margin-right:clamp(28px,6vw,90px)}
+  .block:nth-child(even){margin-left:clamp(28px,6vw,90px)}
+}
+
+/* ===== ③小さなアイコンがゆるく動く ===== */
+.deco{position:absolute;pointer-events:none;z-index:1;opacity:.9}
+.deco svg{display:block}
+@keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-9px,0) rotate(6deg)}}
+@keyframes floaty2{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,7px,0) rotate(-8deg)}}
+.deco.f1{animation:floaty 5.2s ease-in-out infinite}
+.deco.f2{animation:floaty2 6.4s ease-in-out infinite .6s}
+.deco.f3{animation:floaty 7.1s ease-in-out infinite 1.2s}
+@media(prefers-reduced-motion:reduce){.deco{animation:none!important}}
+.sec{position:relative;overflow:hidden}
+
 /* 山型（曲線）のセクション境目 */
 .curve{display:block;width:100%;height:clamp(38px,6vw,84px);margin-bottom:-1px;position:relative;z-index:2}
 .curve svg{display:block;width:100%;height:100%}
@@ -266,6 +298,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 <div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#FFFFFF"/></svg></div>
 
 <section class="sec alt">
+    <span class="deco f2" style="top:10%;right:5%" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l2.2 6.4L21 10.6l-5.5 4.1L17 22l-5-3.6L7 22l1.5-7.3L3 10.6l6.8-2.2z" fill="#00B220" opacity=".22"/></svg></span>
+    <span class="deco f3" style="bottom:14%;left:5%" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#FF9301" opacity=".3"/></svg></span>
   <div class="wrap">
     <div class="sec-h"><span class="en">FEATURES</span><h2>短期で英検合格を目指せる4つの特徴</h2></div>
     <div class="feats">
@@ -451,11 +485,14 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 
 <div class="curve" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 C360,4 1080,4 1440,90 Z" fill="#F8F8F8"/></svg></div>
 
-<section class="sec alt">
+<section class="sec sec--brand">
+    <span class="deco f1" style="top:6%;right:6%" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 2l2.2 6.4L21 10.6l-5.5 4.1L17 22l-5-3.6L7 22l1.5-7.3L3 10.6l6.8-2.2z" fill="#FFE95C"/></svg></span>
+    <span class="deco f2" style="top:22%;left:4%" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#FFE95C"/></svg></span>
+    <span class="deco f3" style="bottom:12%;right:10%" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="rgba(255,255,255,.55)"/></svg></span>
   <div class="wrap">
     <div class="sec-h"><span class="en">VOICE</span><h2>保護者さまの声</h2></div>
-    <div class="voices">
-      <article class="voice">
+    <div class="blocks">
+      <article class="block">
         <p class="voice__t">3ヶ月で英検準2級を取得したAさん（小4）のお父さま</p>
         <div class="voice__b">
           <img class="voice__ph" src="../../lp/newonline/img/voice_parent01.webp" alt="保護者イメージ" loading="lazy" width="112" height="112">
@@ -465,7 +502,7 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
           </div>
         </div>
       </article>
-      <article class="voice voice--reply">
+      <article class="block block--reply">
         <p class="voice__t">講師からのコメント</p>
         <div class="voice__b">
           <img class="voice__ph" src="../../lp/newonline/img/voice_teacher01.webp" alt="講師イメージ" loading="lazy" width="112" height="112">
@@ -476,7 +513,7 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
           </div>
         </div>
       </article>
-      <article class="voice">
+      <article class="block">
         <p class="voice__t">ESL club入会からたった8ヶ月で5級・4級・3級をスピード合格したTくん（小6）のお母さまより</p>
         <div class="voice__b">
           <img class="voice__ph" src="../../lp/newonline/img/voice_parent02.webp" alt="保護者イメージ" loading="lazy" width="112" height="112">
