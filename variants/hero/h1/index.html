@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>H1案｜フルブリード＋曲線メッセージボックス｜ESL club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#000000;
+  --ink2:#333333;
+  --paper:#FFFFFF;
+  --paper2:#F8F8F8;
+  --line:#E3E3E3;
+  --green:#00B220;
+  --green2:#05A81F;
+  --green-l:#EAF7EC;
+  --gold:#FF9301;
+  --marker:#FFE95C;
+  --e:cubic-bezier(.23,1,.32,1);
+
+  /* hero geometry */
+  --mediaH:clamp(320px,55vh,540px);
+  --curveH:72px;
+  --lift:28px;
+  --headH:58px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Noto Sans JP","Helvetica Neue",Helvetica,"Hiragino Sans","Hiragino Kaku Gothic ProN",Arial,"Yu Gothic",Meiryo,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ---------- header ---------- */
+.hd{
+  position:relative;
+  z-index:30;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.hd-in{
+  height:var(--headH);
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.hd-in img{height:20px;width:auto}
+
+/* ---------- button ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--green);
+  color:#FFFFFF;
+  font-weight:700;
+  border-radius:6px;
+  letter-spacing:.02em;
+  line-height:1.4;
+  text-align:center;
+  transition:background .18s var(--e),transform .12s var(--e),box-shadow .18s var(--e);
+  will-change:transform;
+}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--green2)}
+}
+.btn-sm{padding:9px 13px;font-size:11.5px;white-space:nowrap}
+.btn-lg{
+  padding:17px 30px;
+  font-size:16px;
+  width:100%;
+  max-width:400px;
+  box-shadow:0 6px 0 0 var(--green-l);
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:var(--paper);
+}
+
+/* copy block (SP: 1st) */
+.hero-copy{order:1;position:relative;z-index:3;background:var(--paper)}
+.copy-in{
+  background:var(--paper);
+  padding:20px 18px 12px;
+  text-align:center;
+}
+.lead{
+  margin:0 0 10px;
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink2);
+  letter-spacing:.03em;
+  line-height:1.7;
+}
+.lead::before{
+  content:"";
+  display:block;
+  width:30px;
+  height:3px;
+  background:var(--gold);
+  margin:0 auto 12px;
+  border-radius:2px;
+}
+h1{
+  margin:0 auto;
+  max-width:16.4em;
+  font-size:22px;
+  font-weight:900;
+  line-height:1.62;
+  letter-spacing:.01em;
+}
+h1 .nb{white-space:nowrap}
+h1 .mk{
+  background:linear-gradient(transparent 62%,var(--marker) 62%,var(--marker) 96%,transparent 96%);
+  padding:0 .04em;
+}
+
+/* photo (SP: 2nd) */
+.hero-media{
+  order:2;
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:var(--mediaH);
+  background:var(--paper2);
+  overflow:hidden;
+}
+.hero-media picture{display:block;width:100%;height:100%}
+.hero-media img{
+  width:100%;
+  height:100%;
+}
+.hero-media img{
+  object-fit:cover;
+  object-position:50% 40%;
+  will-change:transform;
+}
+
+/* cta block (SP: 3rd) — curved shape overlaps the photo */
+.hero-cta{
+  order:3;
+  position:relative;
+  z-index:4;
+  margin-top:calc(-1 * (var(--curveH) + var(--lift)));
+}
+.curve{
+  display:block;
+  width:100%;
+  height:var(--curveH);
+  margin-bottom:-1px;
+}
+.curve-pc{display:none}
+.cta-in{
+  background:var(--paper);
+  padding:0 20px 30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.cta-note{
+  margin:12px 0 0;
+  font-size:12px;
+  color:var(--ink2);
+  line-height:1.7;
+  text-align:center;
+  letter-spacing:.01em;
+}
+
+/* ---------- PC ---------- */
+@media (min-width:900.1px){
+  :root{
+    --mediaH:clamp(460px,70vh,680px);
+    --curveH:clamp(120px,17vh,200px);
+    --lift:clamp(50px,17vh,140px);
+    --headH:70px;
+  }
+  .hd-in{padding:0 32px}
+  .hd-in img{height:26px}
+  .btn-sm{padding:12px 20px;font-size:13.5px}
+  .btn-lg{padding:19px 44px;font-size:17px;width:auto;max-width:none}
+
+  /* photo first, then the curved message box on top of it */
+  .hero-media{order:1}
+  .hero-copy{
+    order:2;
+    margin-top:calc(-1 * (var(--curveH) + var(--lift)));
+    background:transparent;
+  }
+  .curve-pc{display:block}
+  .copy-in{padding:0 40px}
+  .lead{
+    font-size:15.5px;
+    margin:0 0 14px;
+    letter-spacing:.06em;
+  }
+  .lead::before{width:38px;margin-bottom:14px}
+  h1{
+    font-size:clamp(27px,2.65vw,37px);
+    line-height:1.52;
+    max-width:16.4em;
+  }
+  .hero-cta{order:3;margin-top:0;z-index:4}
+  .curve-sp{display:none}
+  .cta-in{padding:16px 40px 56px}
+  .cta-note{font-size:13.5px;margin-top:14px}
+}
+
+/* ---------- entrance orchestration (one pass, ~70ms stagger) ---------- */
+@keyframes heroZoom{from{opacity:0;transform:scale(1.045)}to{opacity:1;transform:scale(1)}}
+@keyframes heroRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-media img{animation:heroZoom 290ms var(--e) both}
+.hero-copy{animation:heroRise 290ms var(--e) 70ms both}
+.lead{animation:heroRise 290ms var(--e) 140ms both}
+h1{animation:heroRise 290ms var(--e) 210ms both}
+.hero-cta{animation:heroRise 290ms var(--e) 280ms both}
+.cta-note{animation:heroRise 290ms var(--e) 350ms both}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-in">
+    <a href="https://eslclub.jp/" aria-label="ESL club"><img src="../../../assets/img/index_lp/logo.svg" alt="ESL club" width="208" height="38"></a>
+    <a class="btn btn-sm" href="https://eslclub.jp/trial/">無料体験レッスンはこちら</a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-media">
+    <picture>
+      <source media="(min-width: 900.1px)" srcset="../../../lp/newonline/img/kv_big_pc.jpg">
+      <img src="../../../lp/newonline/img/kv_big_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす" width="750" height="1118" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <div class="hero-copy">
+    <svg class="curve curve-pc" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,200 C 400,12 1040,12 1440,200 Z" fill="#FFFFFF"></path>
+    </svg>
+    <div class="copy-in">
+      <p class="lead">2015年の開塾以降“英検に特化”してきたからできる</p>
+      <h1><span class="nb">受験勉強と</span><wbr><span class="nb">並走しながら</span><wbr><span class="nb">“小学生・中学生で</span><wbr><span class="nb"><span class="mk">英検2級</span>、</span><wbr><span class="nb">高校生で<span class="mk">準1級</span>”を</span><wbr><span class="nb">目指せる英語塾</span></h1>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <svg class="curve curve-sp" viewBox="0 0 750 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,90 C 210,6 540,6 750,90 Z" fill="#FFFFFF"></path>
+    </svg>
+    <div class="cta-in">
+      <a class="btn btn-lg" href="https://eslclub.jp/trial/">無料体験レッスンはこちら</a>
+      <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

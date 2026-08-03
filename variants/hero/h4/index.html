@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESL club｜英検に特化した英語塾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Noto Sans JP", "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif;
+    color: #000000;
+    background: #FFFFFF;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .nb { white-space: nowrap; }
+
+  :focus-visible {
+    outline: 3px solid #FF9301;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* ---------- header ---------- */
+  .hd {
+    position: relative;
+    z-index: 3;
+    height: 68px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E3E3E3;
+    display: flex;
+    align-items: center;
+  }
+  .hd__in {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .hd__logo { height: 28px; width: auto; }
+  .hd__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #00B220;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: .02em;
+    padding: 12px 18px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background-color 200ms cubic-bezier(.23,1,.32,1), transform 120ms cubic-bezier(.23,1,.32,1);
+  }
+  .hd__cta:active { transform: scale(.97); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+  }
+  .hero__media {
+    position: relative;
+    order: 2;
+    width: 100%;
+    overflow: hidden;
+    background: #F8F8F8;
+  }
+  .hero__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 750 / 1118;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero__scrim { display: none; }
+
+  .hero__copy {
+    order: 1;
+    padding: 26px 20px 22px;
+  }
+  .hero__lead {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: .01em;
+    color: #333333;
+  }
+  .hero__h1 {
+    margin: 0;
+    font-size: clamp(21px, 5.9vw, 30px);
+    font-weight: 900;
+    line-height: 1.58;
+    letter-spacing: .005em;
+    color: #000000;
+  }
+  .mk {
+    background: #FFE95C;
+    color: #000000;
+    padding: .04em .14em;
+    border-radius: 3px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .hero__cta {
+    order: 3;
+    padding: 20px 20px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    background: #00B220;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.4;
+    letter-spacing: .02em;
+    padding: 18px 26px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 200ms cubic-bezier(.23,1,.32,1), transform 120ms cubic-bezier(.23,1,.32,1);
+  }
+  .btn:active { transform: scale(.97); }
+  .hero__note {
+    margin: 0 auto;
+    max-width: 460px;
+    width: 100%;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #333333;
+    text-align: center;
+  }
+
+  /* ---------- PC : photo overlay ---------- */
+  @media (min-width: 900.1px) {
+    .hd { height: 68px; }
+    .hd__logo { height: 32px; }
+    .hd__cta { font-size: 14px; padding: 14px 24px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: 1fr auto;
+      align-items: end;
+      height: calc(100svh - 68px);
+      min-height: max(80vh, 540px);
+      max-height: 900px;
+      overflow: hidden;
+    }
+    .hero__media {
+      grid-area: 1 / 1 / -1 / -1;
+      order: 0;
+      height: 100%;
+      background: #000000;
+    }
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero__scrim {
+      display: block;
+      grid-area: 1 / 1 / -1 / -1;
+      align-self: stretch;
+      justify-self: stretch;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      background: linear-gradient(to top,
+        rgba(0,0,0,.90) 0%,
+        rgba(0,0,0,.82) 22%,
+        rgba(0,0,0,.56) 42%,
+        rgba(0,0,0,.18) 62%,
+        rgba(0,0,0,0) 80%);
+    }
+    .hero__copy {
+      grid-area: 2 / 1;
+      order: 0;
+      z-index: 2;
+      padding: 0 32px 46px 60px;
+      max-width: 60vw;
+    }
+    .hero__lead {
+      color: #FFFFFF;
+      font-size: clamp(14px, 1.05vw, 17px);
+      margin-bottom: 14px;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55);
+    }
+    .hero__h1 {
+      color: #FFFFFF;
+      font-size: clamp(28px, 2.95vw, 44px);
+      line-height: 1.5;
+      text-shadow: 0 2px 16px rgba(0,0,0,.55);
+    }
+    .hero__cta {
+      grid-area: 2 / 2;
+      order: 0;
+      z-index: 2;
+      padding: 0 60px 46px 0;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .btn {
+      width: auto;
+      max-width: none;
+      margin: 0;
+      font-size: 18px;
+      padding: 22px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .hero__note {
+      color: #FFFFFF;
+      max-width: none;
+      width: auto;
+      text-align: right;
+      font-size: 13px;
+      text-shadow: 0 1px 10px rgba(0,0,0,.6);
+    }
+  }
+
+  @media (min-width: 900.1px) and (max-width: 1120px) {
+    .hero__copy { padding-left: 32px; max-width: 56vw; }
+    .hero__cta { padding-right: 32px; }
+    .btn { font-size: 16px; padding: 18px 26px; }
+  }
+
+  @media (max-width: 380px) {
+    .hd__in { padding: 0 14px; }
+    .hd__logo { height: 24px; }
+    .hd__cta { font-size: 12px; padding: 11px 13px; }
+    .hero__copy { padding: 22px 16px 18px; }
+    .hero__cta { padding: 18px 16px 30px; }
+  }
+
+  /* ---------- motion ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes photoIn {
+    from { opacity: 0; transform: scale(1.06); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .rv {
+    opacity: 0;
+    animation: rise 520ms cubic-bezier(.23,1,.32,1) both;
+  }
+  .hd { animation: fadeIn 320ms cubic-bezier(.23,1,.32,1) both; }
+  .hero__media img { animation: photoIn 620ms cubic-bezier(.23,1,.32,1) both; animation-delay: 70ms; }
+  .hero__scrim { animation: fadeIn 520ms cubic-bezier(.23,1,.32,1) both; animation-delay: 140ms; }
+  .rv--1 { animation-delay: 140ms; }
+  .rv--2 { animation-delay: 210ms; }
+  .rv--3 { animation-delay: 280ms; }
+  .rv--4 { animation-delay: 350ms; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { background: #05A81F; transform: translate3d(0, -2px, 0); }
+    .hd__cta:hover { background: #05A81F; transform: translate3d(0, -1px, 0); }
+    .btn:active, .hd__cta:hover:active { transform: scale(.97); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .rv { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd__in">
+    <a href="https://eslclub.jp/" class="hd__logo-link"><img src="../../../assets/img/index_lp/logo.svg" alt="ESL club" class="hd__logo" width="208" height="38"></a>
+    <a href="https://eslclub.jp/trial/" class="hd__cta">無料体験レッスンはこちら</a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero__media">
+    <picture>
+      <source media="(min-width: 900.1px)" srcset="../../../lp/newonline/img/kv_big_pc.jpg">
+      <img src="../../../lp/newonline/img/kv_big_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす" width="750" height="1118" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="hero__copy">
+    <p class="hero__lead rv rv--1"><span class="nb">2015年の開塾以降</span><wbr><span class="nb">“英検に特化”してきた</span><wbr><span class="nb">からできる</span></p>
+    <h1 class="hero__h1 rv rv--2"><span class="nb">受験勉強と並走しながら</span><wbr><span class="nb">“小学生・中学生で</span><wbr><span class="nb"><span class="mk">英検2級</span>、</span><wbr><span class="nb">高校生で</span><wbr><span class="nb"><span class="mk">準1級</span>”を</span><wbr><span class="nb">目指せる英語塾</span></h1>
+  </div>
+
+  <div class="hero__cta">
+    <a href="https://eslclub.jp/trial/" class="btn rv rv--3">無料体験レッスンはこちら</a>
+    <p class="hero__note rv rv--4"><span class="nb">いつまでに2級合格できるか</span><wbr><span class="nb">レッスン後にご案内します</span></p>
+  </div>
+
+</section>
+
+</body>
+</html>
