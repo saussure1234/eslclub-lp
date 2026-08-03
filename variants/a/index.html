@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>A案｜級を上る（データ主導）｜ESL club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Archivo:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C2321; --ink2:#5A625C;
+  --paper:#F6F5F0; --paper2:#EDEBE2; --white:#fff;
+  --green:#0F3D2E; --green2:#1D5C46; --green-l:#E6EEE9;
+  --gold:#C9962F; --gold-l:#FBF2DF;
+  --line:#DFDCD1;
+  --e:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.zk{font-family:"Zen Kaku Gothic New",sans-serif}
+.num{font-family:"Archivo",sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
+.nb{white-space:nowrap}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(246,245,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:70px}
+.hd img{height:30px;width:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:700;
+  background:var(--green);color:#fff;padding:14px 26px;border-radius:2px;font-size:15px;letter-spacing:.02em;
+  transition:transform .16s var(--e),background .16s var(--e)}
+.btn:active{transform:scale(.98)}
+@media(hover:hover) and (pointer:fine){.btn:hover{background:var(--green2)}}
+.hd .btn{padding:11px 20px;font-size:14px}
+.btn .ar{width:18px;height:8px;flex:none}
+.btn .ar svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.6}
+
+/* hero */
+.hero{padding:64px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(#F6F5F0 0 62%, #EDEBE2 62% 100%)}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:14.5px;color:var(--green2);letter-spacing:.04em;margin:0 0 20px}
+.eyebrow::before{content:"";width:32px;height:2px;background:var(--gold);flex:none}
+h1{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(30px,3.5vw,44px);line-height:1.5;letter-spacing:.005em;margin:0 0 26px}
+h1 .u{background:linear-gradient(transparent 62%, rgba(201,150,47,.34) 62%);padding:0 .04em}
+h1 .g{color:var(--green)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.chip{background:var(--white);border:1px solid var(--line);padding:9px 16px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.chip b{font-family:"Archivo";font-weight:700;font-size:17px;color:var(--gold);margin-right:2px}
+.cta-note{margin:12px 0 0;font-size:13px;color:var(--ink2)}
+.hero-fig{position:relative}
+.hero-fig img{width:100%;border:1px solid var(--line)}
+.hero-fig figcaption{position:absolute;left:0;bottom:-1px;background:var(--green);color:#fff;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:12.5px;padding:7px 14px;letter-spacing:.04em}
+
+/* section base */
+.sec{padding:84px 0}
+.sec.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-h{margin:0 0 44px}
+.sec-h .en{display:block;font-family:"Archivo";font-weight:600;font-size:12.5px;letter-spacing:.18em;color:var(--gold);margin-bottom:8px}
+.sec-h h2{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(23px,2.7vw,31px);margin:0;line-height:1.45}
+
+/* 4つの特徴 */
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.feat{background:var(--white);padding:30px 24px 32px;transition:background .18s var(--e)}
+@media(hover:hover) and (pointer:fine){.feat:hover{background:var(--green-l)}}
+.feat .no{display:flex;align-items:baseline;gap:7px;margin-bottom:14px}
+.feat .no .t{font-family:"Archivo";font-weight:600;font-size:11px;letter-spacing:.14em;color:var(--ink2)}
+.feat .no .n{font-family:"Archivo";font-weight:700;font-size:30px;line-height:1;color:var(--gold)}
+.feat h3{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:17px;line-height:1.55;margin:0 0 10px}
+.feat p{margin:0;font-size:13.5px;line-height:1.85;color:var(--ink2)}
+
+/* 合格率＝級の階段 */
+.stairs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end;max-width:900px;margin:0 auto}
+.st{display:flex;flex-direction:column;justify-content:flex-end;text-align:center}
+.st .bar{background:var(--green);color:#fff;border-radius:2px 2px 0 0;padding:16px 6px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px}
+.st:nth-child(1) .bar{height:112px;background:#2F7A5E}
+.st:nth-child(2) .bar{height:146px;background:#276A51}
+.st:nth-child(3) .bar{height:180px;background:#205945}
+.st:nth-child(4) .bar{height:214px;background:#184A39}
+.st:nth-child(5) .bar{height:248px;background:var(--green)}
+.st .rate{font-family:"Archivo";font-weight:700;font-size:30px;line-height:1;letter-spacing:-.01em}
+.st .rate span{font-size:15px;margin-left:1px}
+.st .lb{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:14px;padding:11px 4px 0;color:var(--ink)}
+.st .cap{font-size:11px;color:rgba(255,255,255,.72);font-weight:500;letter-spacing:.02em}
+.stairs-att{max-width:900px;margin:20px auto 0;font-size:12px;color:var(--ink2);line-height:1.8}
+.stairs-att span{display:block}
+.lead-p{max-width:820px;margin:0 0 34px;font-size:15.5px;line-height:2}
+
+.cta-band{background:var(--green);color:#fff;padding:56px 0;text-align:center}
+.cta-band h2{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(20px,2.4vw,26px);margin:0 0 22px;line-height:1.5}
+.cta-band .btn{background:var(--gold);color:#14100a}
+@media(hover:hover) and (pointer:fine){.cta-band .btn:hover{background:#D8A63C}}
+.cta-band .cta-note{color:rgba(255,255,255,.8)}
+
+@media(max-width:900px){
+  .hero{padding:36px 0 48px}
+  .hero-in{grid-template-columns:1fr;gap:28px}
+  .feats{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:56px 0}
+  .stairs{gap:7px}
+  .st .rate{font-size:21px}
+  .st .lb{font-size:12px}
+  .st .cap{display:none}
+}
+@media(max-width:560px){
+  .hd .btn{display:none}
+  .feats{grid-template-columns:1fr}
+  .st:nth-child(1) .bar{height:86px}.st:nth-child(2) .bar{height:108px}.st:nth-child(3) .bar{height:130px}
+  .st:nth-child(4) .bar{height:152px}.st:nth-child(5) .bar{height:174px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hd">
+    <a href="#"><img src="../../assets/img/index_lp/logo.svg" alt="ESL club"></a>
+    <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow">2015年の開塾以降“英検に特化”してきたからできる</p>
+      <h1>受験勉強と並走しながら<br><span class="nb"><span class="g">小学生・中学生で</span><span class="u">英検2級</span></span>、<br class="sp"><span class="nb"><span class="g">高校生で</span><span class="u">準1級</span></span>を<br>目指せる英語塾</h1>
+      <div class="chips">
+        <span class="chip"><b>1,000</b>名以上の合格実績</span>
+        <span class="chip">バイリンガル講師のマンツーマン</span>
+      </div>
+      <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
+      <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
+    </div>
+    <figure class="hero-fig" style="margin:0">
+      <picture>
+        <source srcset="../../lp/newonline/img/kv_new_pc.jpg" media="(min-width: 900.1px)">
+        <img src="../../lp/newonline/img/kv_new_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす">
+      </picture>
+    </figure>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">FEATURES</span><h2>短期で英検合格を目指せる4つの特徴</h2></div>
+    <div class="feats">
+      <div class="feat"><div class="no"><span class="t">POINT</span><span class="n">1</span></div><h3>高い英検合格率を実現</h3><p>累計1,000名以上を合格に導いた英検ベースのカリキュラム</p></div>
+      <div class="feat"><div class="no"><span class="t">POINT</span><span class="n">2</span></div><h3>受験勉強と並行可能</h3><p>目標級・時期と現在のレベルから作成する個別の学習計画</p></div>
+      <div class="feat"><div class="no"><span class="t">POINT</span><span class="n">3</span></div><h3>学習効率を向上</h3><p>バイリンガル講師のマンツーマンレッスン</p></div>
+      <div class="feat"><div class="no"><span class="t">POINT</span><span class="n">4</span></div><h3>保護者様が忙しくても安心</h3><p>計画の実行をフォローするスクールマネージャー</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="en">POINT 1</span><h2>累計1,000名以上を合格に導いた<br>英検ベースのカリキュラム</h2></div>
+    <p class="lead-p">ESL clubでは2015年の開塾以降、英検をカリキュラムに用いて、着実な英語力の向上と英検合格に導いてきました。国際基準であるCEFRに対応した英検を用いることで、バランスよく4技能＋語彙力を高めていきます。一般的には、英検2級が高校卒業時の到達目標とされていますが、ESL clubでは、小学生、中学生の時点での高い合格率を誇っています。</p>
+    <div class="stairs">
+      <div class="st"><div class="bar"><div class="rate num">100<span>%</span></div><div class="cap">合格率</div></div><div class="lb">英検5級</div></div>
+      <div class="st"><div class="bar"><div class="rate num">88<span>%</span></div><div class="cap">合格率</div></div><div class="lb">英検4級</div></div>
+      <div class="st"><div class="bar"><div class="rate num">86<span>%</span></div><div class="cap">合格率</div></div><div class="lb">英検3級</div></div>
+      <div class="st"><div class="bar"><div class="rate num">64<span>%</span></div><div class="cap">合格率</div></div><div class="lb">英検準2級</div></div>
+      <div class="st"><div class="bar"><div class="rate num">75<span>%</span></div><div class="cap">合格率</div></div><div class="lb">英検2級</div></div>
+    </div>
+    <p class="stairs-att"><span>※2023年度第2回の実績（ESL clubオンライン校）</span><span>※受験者のうち1次・2次受験双方に合格した生徒の割合</span></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <a class="btn" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<span class="ar"><svg viewBox="0 0 18 8"><path d="M0 4h16M12 1l4 3-4 3"/></svg></span></a>
+    <p class="cta-note">いつまでに2級合格できるかレッスン後にご案内します</p>
+  </div>
+</section>
+</body>
+</html>

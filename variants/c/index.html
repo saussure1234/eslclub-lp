@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESL club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ESL club — variant C : grid & numerals
+   ============================================================ */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --paper: #ffffff;
+  --ink: #101413;
+  --green: #00913a;
+  --green-ink: #00762f;
+  --muted: #5a625f;
+  --line: rgba(16, 20, 19, 0.14);
+  --line-soft: rgba(16, 20, 19, 0.08);
+  --track: rgba(16, 20, 19, 0.10);
+  --ease: cubic-bezier(.23, 1, .32, 1);
+  --jp: "Zen Kaku Gothic New", sans-serif;
+  --en: "Archivo", "Zen Kaku Gothic New", sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--jp);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: .01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg { display: block; max-width: 100%; }
+
+h1, h2, h3, p, ol, ul, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+
+a { color: inherit; }
+
+:where(a, button):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ---------- shared bits ---------- */
+
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(18px, 4vw, 48px);
+}
+
+.num {
+  font-family: var(--en);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: .005em;
+}
+
+.nb { white-space: nowrap; }
+
+.label {
+  font-family: var(--en);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label::before {
+  content: "";
+  width: 26px;
+  height: 3px;
+  background: var(--green);
+  flex: none;
+}
+
+.sec {
+  border-top: 2px solid var(--ink);
+  padding-block: clamp(52px, 7.5vw, 104px);
+}
+
+.sec__h {
+  font-family: var(--jp);
+  font-weight: 900;
+  font-size: clamp(1.375rem, 3.4vw, 2.25rem);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  margin-top: 22px;
+}
+
+/* ---------- header ---------- */
+
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+
+.hdr__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 62px;
+  padding-block: 10px;
+}
+
+.hdr__logo {
+  width: clamp(108px, 15vw, 168px);
+  height: auto;
+}
+
+/* ---------- button ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--jp);
+  font-weight: 700;
+  border-radius: 2px;
+  transition: transform .16s var(--ease);
+  will-change: transform;
+}
+
+.btn__arw {
+  width: 26px;
+  height: 12px;
+  flex: none;
+  transition: transform .2s var(--ease);
+}
+
+.btn--sm {
+  font-size: clamp(11px, 2.6vw, 14px);
+  letter-spacing: .01em;
+  padding: 11px clamp(12px, 2.4vw, 20px);
+  white-space: nowrap;
+}
+
+.btn--sm .btn__arw { width: 18px; }
+
+.btn--lg {
+  width: 100%;
+  max-width: 620px;
+  min-height: 78px;
+  font-size: clamp(1.0625rem, 3.2vw, 1.375rem);
+  letter-spacing: .02em;
+  padding: 18px 24px;
+}
+
+.btn:active { transform: scale(.97); }
+
+/* ---------- first view ---------- */
+
+.fv { position: relative; overflow: hidden; }
+
+.fv__in {
+  position: relative;
+  padding-top: clamp(38px, 6vw, 76px);
+  padding-bottom: clamp(30px, 4.5vw, 56px);
+}
+
+.fv__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+  background-image: linear-gradient(to right, var(--line-soft) 1px, transparent 1px);
+  background-size: calc(100% / 6) 100%;
+}
+
+.fv__lead,
+.fv__h1,
+.fv__kv { position: relative; }
+
+.fv__lead {
+  font-size: clamp(.8125rem, 2.6vw, 1rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.fv__lead::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  background: var(--green);
+  vertical-align: middle;
+  margin-right: 12px;
+  transform: translateY(-2px);
+}
+
+.fv__h1 {
+  margin-top: clamp(16px, 2vw, 26px);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 5.4vw, 3.5rem);
+  line-height: 1.36;
+  letter-spacing: -.015em;
+}
+
+.fv__h1 em {
+  font-style: normal;
+  position: relative;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  box-shadow: inset 0 -.16em 0 var(--green);
+}
+
+.fv__kv {
+  margin-top: clamp(28px, 4vw, 48px);
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  background: var(--paper);
+}
+
+.fv__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 750 / 1118;
+  object-fit: cover;
+}
+
+/* ---------- cta ---------- */
+
+.cta { border-top: 2px solid var(--ink); }
+
+.cta__in {
+  padding-block: clamp(34px, 5vw, 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cta__note {
+  margin-top: 18px;
+  font-size: clamp(.8125rem, 2.5vw, .9375rem);
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.cta--end { border-bottom: 8px solid var(--ink); }
+
+.cta--end .cta__in { padding-block: clamp(48px, 7vw, 96px); }
+
+/* ---------- features ---------- */
+
+.grid4 {
+  margin-top: clamp(30px, 4vw, 52px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+}
+
+.cell {
+  position: relative;
+  background: var(--paper);
+  padding: clamp(24px, 3.2vw, 40px);
+}
+
+.cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .24s var(--ease);
+}
+
+.cell__pt {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.pt__word {
+  font-family: var(--en);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .2em;
+  color: var(--muted);
+}
+
+.pt__no {
+  font-size: clamp(1.75rem, 4.6vw, 2.375rem);
+  line-height: .9;
+}
+
+.cell__h {
+  margin-top: 16px;
+  font-weight: 900;
+  font-size: clamp(1.125rem, 2.6vw, 1.5rem);
+  line-height: 1.55;
+  letter-spacing: -.005em;
+}
+
+.cell__d {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: clamp(.875rem, 2.4vw, .9375rem);
+  font-weight: 500;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+/* ---------- point1 detail ---------- */
+
+.body {
+  margin-top: clamp(24px, 3vw, 34px);
+  max-width: 46em;
+  font-size: clamp(.9375rem, 2.5vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 2.05;
+}
+
+.rates { margin-top: clamp(44px, 6vw, 80px); }
+
+.rates__h {
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  line-height: 1.6;
+  padding-bottom: 14px;
+}
+
+.rate-list { border-top: 3px solid var(--ink); }
+
+.rate {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    "label value"
+    "bar   bar";
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 12px;
+  padding-block: clamp(16px, 2.4vw, 22px);
+  border-bottom: 1px solid var(--line);
+}
+
+.rate__label {
+  grid-area: label;
+  font-weight: 700;
+  font-size: clamp(.9375rem, 2.6vw, 1.125rem);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.rate__label .num { font-size: 1.06em; }
+
+.rate__bar {
+  grid-area: bar;
+  height: 8px;
+  background: var(--track);
+  border-radius: 0;
+}
+
+.rate__fill {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
+
+.rate__value {
+  grid-area: value;
+  font-family: var(--en);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  font-size: clamp(2.5rem, 10vw, 5.25rem);
+  line-height: .82;
+  letter-spacing: -.02em;
+  justify-self: end;
+}
+
+.rate__value .pct {
+  font-size: .42em;
+  letter-spacing: 0;
+  margin-left: .06em;
+  vertical-align: baseline;
+}
+
+.notes {
+  margin-top: 20px;
+  font-size: clamp(.75rem, 2.2vw, .8125rem);
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+/* ---------- breakpoints ---------- */
+
+/* tablet band: keep the portrait SP key visual from ballooning */
+@media (min-width: 481px) and (max-width: 900px) {
+  .fv__kv { max-width: 430px; margin-inline: auto; }
+}
+
+@media (min-width: 720px) {
+  .grid4 { grid-template-columns: 1fr 1fr; }
+
+  .rate {
+    grid-template-columns: minmax(150px, max-content) 1fr max-content;
+    grid-template-areas: "label bar value";
+    column-gap: clamp(24px, 4vw, 56px);
+  }
+
+  .rate__bar { height: 14px; }
+}
+
+@media (min-width: 900.1px) {
+  .fv__grid { display: block; }
+  .fv__img { aspect-ratio: 3200 / 1624; }
+  .fv__in { padding-bottom: clamp(40px, 4vw, 64px); }
+}
+
+/* ---------- motion ---------- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.o {
+  animation: rise .54s var(--ease) both;
+}
+
+.o1 { animation-delay: 0ms; }
+.o2 { animation-delay: 70ms; }
+.o3 { animation-delay: 140ms; }
+.o4 { animation-delay: 210ms; }
+.o5 { animation-delay: 280ms; }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translate3d(0, -2px, 0); }
+  .btn:hover .btn__arw { transform: translate3d(5px, 0, 0); }
+  .cell:hover::before { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  @keyframes rise {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .btn,
+  .btn__arw,
+  .cell::before { transition: none; }
+
+  .btn:active,
+  .btn:hover,
+  .btn:hover .btn__arw { transform: none; }
+
+  .cell::before { transform: scaleX(1); opacity: 0; }
+  .cell:hover::before { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<header class="hdr o o1">
+  <div class="wrap hdr__in">
+    <img class="hdr__logo" src="../../assets/img/index_lp/logo.svg" alt="ESL club" width="208" height="38">
+    <a class="btn btn--sm" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<svg class="btn__arw" viewBox="0 0 26 12" aria-hidden="true" focusable="false"><path d="M0 6h23M18 1l5.5 5L18 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== FV ===== -->
+  <section class="fv">
+    <div class="wrap fv__in">
+      <div class="fv__grid" aria-hidden="true"></div>
+
+      <p class="fv__lead o o2"><span class="num">2015</span>年の開塾以降“英検に特化”してきたからできる</p>
+
+      <h1 class="fv__h1 o o3"><span class="nb">受験勉強と並走しながら</span><wbr><span class="nb">“小学生・中学生で</span><wbr><span class="nb"><em>英検<span class="num">2</span>級</em>、</span><wbr><span class="nb">高校生で</span><wbr><span class="nb"><em>準<span class="num">1</span>級</em>”を</span><wbr><span class="nb">目指せる英語塾</span></h1>
+
+      <figure class="fv__kv o o4">
+        <picture>
+          <source media="(min-width: 900.1px)" srcset="../../lp/newonline/img/kv_new_pc.jpg" width="3200" height="1624">
+          <img class="fv__img" src="../../lp/newonline/img/kv_new_sp.jpg" alt="ESL clubで学ぶ小学生と中高生のようす" width="750" height="1118" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== CTA 1 ===== -->
+  <section class="cta">
+    <div class="wrap cta__in o o5">
+      <a class="btn btn--lg" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<svg class="btn__arw" viewBox="0 0 26 12" aria-hidden="true" focusable="false"><path d="M0 6h23M18 1l5.5 5L18 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <p class="cta__note">いつまでに<span class="num">2</span>級合格できるかレッスン後にご案内します</p>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="sec">
+    <div class="wrap">
+      <p class="label">Features</p>
+      <h2 class="sec__h"><span class="nb">短期で英検合格を目指せる</span><wbr><span class="nb"><span class="num">4</span>つの特徴</span></h2>
+
+      <ol class="grid4">
+        <li class="cell">
+          <p class="cell__pt"><span class="pt__word">POINT</span><span class="pt__no num">1</span></p>
+          <h3 class="cell__h">高い英検合格率を実現</h3>
+          <p class="cell__d">累計1,000名以上を合格に導いた英検ベースのカリキュラム</p>
+        </li>
+        <li class="cell">
+          <p class="cell__pt"><span class="pt__word">POINT</span><span class="pt__no num">2</span></p>
+          <h3 class="cell__h">受験勉強と並行可能</h3>
+          <p class="cell__d">目標級・時期と現在のレベルから作成する個別の学習計画</p>
+        </li>
+        <li class="cell">
+          <p class="cell__pt"><span class="pt__word">POINT</span><span class="pt__no num">3</span></p>
+          <h3 class="cell__h">学習効率を向上</h3>
+          <p class="cell__d">バイリンガル講師のマンツーマンレッスン</p>
+        </li>
+        <li class="cell">
+          <p class="cell__pt"><span class="pt__word">POINT</span><span class="pt__no num">4</span></p>
+          <h3 class="cell__h">保護者様が忙しくても安心</h3>
+          <p class="cell__d">計画の実行をフォローするスクールマネージャー</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== POINT1 DETAIL ===== -->
+  <section class="sec">
+    <div class="wrap">
+      <p class="label"><span>Point<span class="num">1</span></span></p>
+      <h2 class="sec__h"><span class="nb">累計<span class="num">1,000</span>名以上を</span><wbr><span class="nb">合格に導いた</span><wbr><span class="nb">英検ベースのカリキュラム</span></h2>
+
+      <p class="body">ESL clubでは2015年の開塾以降、英検をカリキュラムに用いて、着実な英語力の向上と英検合格に導いてきました。国際基準であるCEFRに対応した英検を用いることで、バランスよく4技能＋語彙力を高めていきます。一般的には、英検2級が高校卒業時の到達目標とされていますが、ESL clubでは、小学生、中学生の時点での高い合格率を誇っています。</p>
+
+      <div class="rates">
+        <h3 class="rates__h"><span class="num">ESL club</span>の小中学生の英検合格率</h3>
+
+        <ul class="rate-list">
+          <li class="rate">
+            <span class="rate__label">英検<span class="num">5</span>級</span>
+            <span class="rate__bar"><span class="rate__fill" style="width:100%"></span></span>
+            <span class="rate__value">100<span class="pct">%</span></span>
+          </li>
+          <li class="rate">
+            <span class="rate__label">英検<span class="num">4</span>級</span>
+            <span class="rate__bar"><span class="rate__fill" style="width:88%"></span></span>
+            <span class="rate__value">88<span class="pct">%</span></span>
+          </li>
+          <li class="rate">
+            <span class="rate__label">英検<span class="num">3</span>級</span>
+            <span class="rate__bar"><span class="rate__fill" style="width:86%"></span></span>
+            <span class="rate__value">86<span class="pct">%</span></span>
+          </li>
+          <li class="rate">
+            <span class="rate__label">英検準<span class="num">2</span>級</span>
+            <span class="rate__bar"><span class="rate__fill" style="width:64%"></span></span>
+            <span class="rate__value">64<span class="pct">%</span></span>
+          </li>
+          <li class="rate">
+            <span class="rate__label">英検<span class="num">2</span>級</span>
+            <span class="rate__bar"><span class="rate__fill" style="width:75%"></span></span>
+            <span class="rate__value">75<span class="pct">%</span></span>
+          </li>
+        </ul>
+
+        <p class="notes">※2023年度第2回の実績（ESL clubオンライン校）<br>※受験者のうち1次・2次受験双方に合格した生徒の割合</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA 2 ===== -->
+  <section class="cta cta--end">
+    <div class="wrap cta__in">
+      <a class="btn btn--lg" href="https://eslclub.jp/trial/">無料体験レッスンはこちら<svg class="btn__arw" viewBox="0 0 26 12" aria-hidden="true" focusable="false"><path d="M0 6h23M18 1l5.5 5L18 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <p class="cta__note">いつまでに<span class="num">2</span>級合格できるかレッスン後にご案内します</p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
